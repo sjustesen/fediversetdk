@@ -1,17 +1,20 @@
 using Fediverset.Data;
 using Fediverset.Interfaces;
 using Fediverset.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace Fediverset.Services;
 
 public class CatalogueService : IService
 {
-    public IConfiguration _settings { get; set; }
+    private IConfiguration _settings { get; set; }
+    private DbContextOptions<CatalogueContext> _optionsBuilder;
 
     public CatalogueService(IConfiguration databaseSettings)
     {
-        this._settings = databaseSettings;
+        _settings = databaseSettings;
+        _optionsBuilder = new DbContextOptions<CatalogueContext>();
     }
     public List<T> Delete<T>()
     {
@@ -30,7 +33,7 @@ public class CatalogueService : IService
 
     public List<T> Create<T>()
     {
-        using (var context = new CatalogueContext(_settings))
+        using (var context = new CatalogueContext(_optionsBuilder))
         {
             context.Database.EnsureCreated();
 

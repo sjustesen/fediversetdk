@@ -8,22 +8,20 @@ public partial class CatalogueContext : DbContext
     public DbSet<Category>? Category { get; set; }
     public DbSet<Link>? Link { get; set; }
 
-    protected readonly IConfiguration Configuration;
-    public CatalogueContext(IConfiguration configuration)
+    public CatalogueContext(DbContextOptions<CatalogueContext> options) : base(options)
     {
-        this.Configuration = configuration;
+      
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        optionsBuilder.UseMySQL(this.Configuration.GetConnectionString("DefaultConnection"));
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<Category>(entity =>
+        /* modelBuilder.Entity<Category>(entity =>
         {
             entity.HasKey(e => e.CategoryId);
             entity.Property(e => e.Name).IsRequired();
@@ -35,6 +33,6 @@ public partial class CatalogueContext : DbContext
             entity.Property(e => e.Name).IsRequired();
             entity.HasOne(d => d.Category)
             .WithMany(p => p.Links);
-        });
+        }); */
     }
 }

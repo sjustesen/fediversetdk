@@ -1,11 +1,25 @@
+using Fediverset.Data;
 using Fediverset.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("ConnectionStrings"));
 
+var connectionString = builder.Configuration.GetSection("ConnectionStrings").GetConnectionString("DefaultConnection");
+var serverVersion = Microsoft.EntityFrameworkCore.ServerVersion.AutoDetect(connectionString);
+
+builder.Services.AddDbContext<CatalogueContext>(
+            dbContextOptions => dbContextOptions
+                .UseMySql(connectionString, serverVersion)
+                // The following three options help with debugging, but should
+                // be changed or removed for production.
+                .LogTo(Console.WriteLine, LogLevel.Information)
+                .EnableSensitiveDataLogging()
+                .EnableDetailedErrors()
+        );
+        
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
