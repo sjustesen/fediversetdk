@@ -25,7 +25,9 @@ public class CatalogueService : IService
         using(var context = new CatalogueContext()) {
             context.Database.EnsureCreated();
 
-            context.Category
+            //context.Category
         }
+
+        return new List<T>();
     }
 }

@@ -1,5 +1,6 @@
 html {
   font-size: 16px;
+
 }
 
 @media (min-width: 768px) {
@@ -15,14 +16,43 @@ html {
 
 body {
   margin-bottom: 60px;
-  font-family: 'Questrial', sans-serif;
-
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(0, 35, 87);
+  color: #000;
+  background-size: cover;
 }
 
-h1 {
-  font-family: 'Questrial', sans-serif;
+h1, h2, p, div,
+.velkommen {
+  color: #fff;
+}
+
+.card, 
+.card-footer {
+  color: #000;
+}
+
+#button-addon2 {
+  background-color: rgb(53, 209, 53);
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
+
+.velkommen {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11pt;
+  text-transform: uppercase;
+}
+
+.frontpage-search {
+  padding: 10px 20px;
+}
+
+h1.intro {
+  font-family: 'Erica One', sans-serif;
   font-weight: 400;
-  font-size: 4rem;
+  font-size: 5rem;
+  line-height: 5rem;
 }
 
 .intro {
