@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Fediverset.Models;
-using MySql.EntityFrameworkCore.Extensions;
 
 namespace Fediverset.Data;
 
