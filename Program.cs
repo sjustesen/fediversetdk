@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var connectionString = builder.Configuration.GetSection("ConnectionStrings").GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var serverVersion = Microsoft.EntityFrameworkCore.ServerVersion.AutoDetect(connectionString);
 
 builder.Services.AddDbContext<CatalogueContext>(

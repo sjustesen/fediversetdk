@@ -2,6 +2,7 @@ namespace Fediverset.Data;
 
 using Microsoft.EntityFrameworkCore;
 using Fediverset.Models;
+using Microsoft.EntityFrameworkCore.Design;
 
 public class CatalogueContext : DbContext
 {
