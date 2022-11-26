@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.EntityFrameworkCore.Metadata;
 
-namespace MySqlDotnetCore.Migrations
+namespace Fediverset.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
