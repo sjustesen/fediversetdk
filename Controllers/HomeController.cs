@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Fediverset.Models;
+using Fediverset.Services;
 
 namespace Fediverset.Controllers;
 
@@ -20,6 +21,7 @@ public class HomeController : Controller
 
     public IActionResult Privacy()
     {
+        var catService = new CatalogueService();
         return View();
     }
 
