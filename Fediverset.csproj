@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Lucene.Net" Version="4.8.0-beta00016" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.7" />
     <PackageReference Include="MySqlConnector" Version="2.2.1" />
-    <PackageReference Include="PetaPoco.Compiled" Version="6.0.532" />
   </ItemGroup>
 
 </Project>
