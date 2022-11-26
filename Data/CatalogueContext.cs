@@ -3,7 +3,7 @@ namespace Fediverset.Data;
 using Microsoft.EntityFrameworkCore;
 using Fediverset.Models;
 
-public partial class CatalogueContext : DbContext
+public class CatalogueContext : DbContext
 {
     public DbSet<Category>? Category { get; set; }
     public DbSet<Link>? Link { get; set; }
